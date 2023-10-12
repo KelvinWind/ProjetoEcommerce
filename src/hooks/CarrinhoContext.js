@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
+
 export const CarrinhoContext = createContext();
 
 function CarrinhoContextProvider({ children }) {
@@ -43,6 +44,9 @@ function CarrinhoContextProvider({ children }) {
 
     const listaProdutosAtualizado = [produto, ...listaProdutosCarrinho];
     salvarProdutos(listaProdutosAtualizado);
+
+    toast.success("Produto adcionado ao carrinho!", {
+      position: "top-center",theme: "light"});
   };
   function removerProduto(idProduto) {
     const listaProdutosAtualizado = listaProdutosCarrinho.filter(

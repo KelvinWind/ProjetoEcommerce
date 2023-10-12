@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Button, Card } from "react-bootstrap";
-// import { CarrinhoContext } from "../hooks/CarrinhoContext";
 import { useNavigate } from "react-router-dom";
+import { CarrinhoContext } from "../../hooks/CarrinhoContext";
 
 
 function CardProdutoV2({ idProduto, nome, preco, descricao, linkImagem }) {
-//   const { adicionarCarrinho } = useContext(CarrinhoContext);
+const { adicionarCarrinho } = useContext(CarrinhoContext);
   let navigate = useNavigate();
 
   function adicionarNoCarrinho(
@@ -20,13 +20,13 @@ function CardProdutoV2({ idProduto, nome, preco, descricao, linkImagem }) {
       navigate("/login");
     }
 
-    // adicionarCarrinho({
-    //   idProduto,
-    //   nomeProduto,
-    //   descricaoProduto,
-    //   precoProduto,
-    //   linkImagemProduto,
-    // });
+    adicionarCarrinho({
+      idProduto,
+      nomeProduto,
+      descricaoProduto,
+      precoProduto,
+      linkImagemProduto,
+    });
   }
 
   return (
